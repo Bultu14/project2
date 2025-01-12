@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra Exam</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333;
+        }
+        header {
+            background-color: #1e88e5;
+            color: white;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.3rem;
+            margin: 10px 0 0;
+        }
+        .exam-content {
+            display: inline-block;
+            text-align: left;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            background-color: #1e88e5;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #1565c0;
+        }
+        .result {
+            font-size: 1.5rem;
+            color: green;
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #1e88e5;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Algebra Exam</h1>
+        <p>Test your algebra skills!</p>
+    </header>
+
+    <div class="exam-content">
+        <form id="examForm">
+            <div class="question">
+                <h3>What is the solution to the equation 2x + 3 = 7?</h3>
+                <label><input type="radio" name="q1" value="a"> 1</label>
+                <label><input type="radio" name="q1" value="b"> 2</label>
+                <label><input type="radio" name="q1" value="c"> 3</label>
+                <label><input type="radio" name="q1" value="d"> 4</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Answer</button>
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Online Examination System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('examForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const correctAnswer = 'b'; // 2
+            const form = new FormData(this);
+            const selectedAnswer = form.get('q1');
+
+            const score = selectedAnswer === correctAnswer ? 1 : 0;
+
+            document.getElementById('result').innerText = `You scored ${score} out of 1.`;
+        });
+    </script>
+
+</body>
+</html>
